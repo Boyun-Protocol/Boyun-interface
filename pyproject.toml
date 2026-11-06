@@ -1,0 +1,18 @@
+[project]
+name = "boyun-interface"
+version = "0.1.0"
+description = "Functional browser assets for the Boyun simulation engine"
+requires-python = ">=3.11"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE"]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[tool.hatch.build.targets.wheel]
+packages = ["src/boyun_interface"]
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "README.md", "LICENSE", "NOTICE", "pyproject.toml"]
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]

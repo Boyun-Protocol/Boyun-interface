@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light"><meta name="description" content="Boyun brings a crypto decision into view. Explore the people, incentives, costs and possible consequences before committing capital."><meta name="theme-color" content="#edf2f5"><title>Boyun scenario interface</title>
+  <link rel="stylesheet" href="/product.css"><script src="/ambient.js" defer></script><script src="/presentation.js" defer></script><script src="/wallet-sdk.js" defer></script><script src="/onboarding.js" defer></script><script src="/product.js" defer></script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2032%22%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2215%22%20r%3D%227%22%20fill%3D%22%23ead3ac%22%2F%3E%3Cpath%20d%3D%22M4%2017h11a5%205%200%200%200%200-10h-3a6%206%200%200%200-8%2010Zm20%209h11a5%205%200%200%200-1-10h-3a6%206%200%200%200-7%2010Z%22%20fill%3D%22%23f8fafb%22%20stroke%3D%22%23365f79%22%20stroke-width%3D%221.6%22%2F%3E%3C%2Fsvg%3E">
+</head>
+<body data-view="landing">
+  <div id="ambient-field" aria-hidden="true"></div><div id="cursor-light" aria-hidden="true"></div>
+  <a id="skip-link" class="skip" href="#landing-title">Skip to introduction</a>
+  <header class="app-header"><a href="/" class="brand" aria-label="Boyun home"><span class="brand-mark" aria-hidden="true"></span> Boyun</a><div class="header-actions"><a href="/docs" class="docs-link">How it works</a><button id="access-settings" class="text-button" type="button">AI &amp; privacy</button><button id="wallet-connect" class="text-button" type="button">Connect testnet wallet</button><span id="model-label" class="model-label">Connecting…</span><button id="saved-results" class="text-button" type="button">Saved results</button><button id="resume" class="text-button" type="button" hidden>Resume</button><a href="/lab">Advanced lab ↗</a></div></header>
+  <main id="landing" class="landing-page" data-page="intro">
+    <section class="landing-hero" aria-labelledby="landing-title">
+      <div class="landing-copy">
+        <h1 id="landing-title" tabindex="-1">Scenario workspace</h1>
+        <p class="landing-lead">Explore financial and economic decisions through the goals, incentives and constraints of the actors involved.</p>
+        <button id="landing-start" class="button primary landing-cta" type="button">Start a scenario <span aria-hidden="true">↗</span></button>
+        <p class="landing-reassurance">Start with a ready example. No API key or wallet needed for a free local-rule run.</p>
+        <a class="landing-tour" href="#landing-journey">See how it works</a>
+        
+      </div>
+      <section class="landing-instrument" data-ui aria-labelledby="preview-title">
+        <p class="preview-context">A small example</p>
+        <h2 id="preview-title">What changes when you act?</h2>
+        <p class="preview-description">A NEAR creator has $10,000. Change their first move to see the tradeoff.</p>
+        <div class="preview-choices" role="group" aria-label="Preview the creator’s first move">
+          <button id="preview-pilot" type="button" aria-pressed="true">Small pilot</button>
+          <button id="preview-announce" type="button" aria-pressed="false">Big announcement</button>
+          <button id="preview-wait" type="button" aria-pressed="false">Wait</button>
+        </div>
+        <div id="landing-preview" class="preview-output" aria-live="polite">
+          <p class="preview-action">Run a small pilot</p>
+          <p class="preview-spend">$500 <span>modeled action cost</span></p>
+          <dl class="preview-effects"><div><dt>Qualified attention</dt><dd>20 → 25</dd></div><div><dt>Execution risk</dt><dd>30 → 25</dd></div></dl>
+        </div>
+        <p class="preview-boundary">Illustrative rules, in hypothetical points. This previews one action before the community responds, not a forecast.</p>
+      </section>
+    </section>
+
+
+    <section id="landing-journey" class="landing-journey" aria-labelledby="journey-title">
+      <div class="journey-intro"><h2 id="journey-title">Bring the decision<br>into focus.</h2><p>A ticker name, a token launch, or a DeFi tradeoff. Start with the decision you’re facing.</p></div>
+      <ol class="landing-process">
+        <li><h3>Describe your decision</h3><p>Tell us what you’re considering and the constraints. Use a ready world or connect a model to create your own.</p></li>
+        <li><h3>Shape the people around it</h3><p>Review the participants, their goals and the rules. Focus on the perspectives that matter to you.</p></li>
+        <li><h3>Compare what happens</h3><p>Approve the run and its cost. Explore scenario slides, charts and recorded choices, then export a report.</p></li>
+      </ol>
+    </section>
+    
+    <footer class="landing-footer"><span>Boyun</span><p>Local scenario workspace.</p><button id="landing-start-bottom" type="button" class="text-button">Start a scenario</button></footer>
+    <noscript><p class="landing-noscript">The introduction is readable without JavaScript. Enable JavaScript to use the guided workspace.</p></noscript>
+  </main>
+  <main id="main" hidden>
+    <div class="flow-top"><div id="step-label" class="eyebrow">YOUR SCENARIO</div><button id="start-over" type="button" class="text-button" hidden>New question</button></div> <!-- taste-skill-ignore: existing app navigation, hidden on the landing -->
+    <progress id="flow-progress" max="1" value="0" aria-label="Question progress"></progress>
+    <div id="error" class="notice error" role="alert" hidden></div>
+    <div id="announcer" class="sr-only" aria-live="polite"></div>
+    <div id="flow-stage" class="flow-stage"><section id="screen" class="question-screen" aria-labelledby="question-title" aria-busy="false"><h1 id="question-title">Loading your workspace…</h1></section></div>
+    <footer id="flow-navigation" class="flow-navigation"><button id="back" type="button" class="button secondary" disabled><span aria-hidden="true">↑</span> Back</button><span id="keyboard-hint" class="keyboard-hint">Use <kbd>↑</kbd> <kbd>↓</kbd> to move between questions</span><button id="next" type="button" class="button primary" disabled>Continue <span aria-hidden="true">↓</span></button></footer>
+    <div class="workspace-note"><span id="score-legend">One question at a time. Your answers stay available when you go back.</span><span>Local workspace · no live trades</span></div>
+  </main>
+</body>
+</html>
